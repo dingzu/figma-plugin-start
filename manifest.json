@@ -1,0 +1,10 @@
+{
+	"name": "Vue3 Plugin Template",
+	"api": "1.0.0",
+	"main": "dist/code.js",
+	"ui": "dist/ui.html",
+	"id": "1099490469536632924",
+	"editorType": [
+		"figma"
+	]
+}
