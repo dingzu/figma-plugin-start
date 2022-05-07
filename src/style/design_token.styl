@@ -1,19 +1,54 @@
 :root
   // 圆角
-  --radius_base 0px
-  // 背景色
-  --bg_color_primary #fff
-  --button_bg_secondary #262626
-  --button_bg_secondary_hover #444444
-  --option_bg #262626
+  --radius 4px
+  // 通用色
+  --color_theme #0c66fd
+  --color_warning #f69b1b
+  --color_success #1bc789
+  --color_active #585d64
   // 文字色
-  --text_color_primar #262626
+  --text_color_main #131313
+  --text_color_sub #555
+  --text_color_weak #999
+  --text_color_alt #fff
+  // 背景色
+  --bg_color_main #fff
+  --bg_color_sub #f4f4f7
+  --bg_color_alt #212121
+  --bg_color_active #eaf2ff
   // 边框色
-  --border_color #dfdfdf
-  --border_color_dark #262626
+  --border_color #e6e7e7
+  --border_color_form #666
   // 页面间距
   --top_bar_height 36px
   --page_padding 12px
   // 动画
   --ani_base 120ms all ease-out
   --ani_long 240ms all ease-in-out
+
+// 文字属性定义
+p, a, button
+  color var(--text_color_main)
+  font-size 22px
+  line-height 32px
+  zoom .5
+  &.bold
+    font-weight 900
+  &.small
+    color var(--text_color_weak)
+    font-size 18px
+    line-height 24px
+  &.main
+    color var(--text_color_main)
+  &.sub
+    color var(--text_color_sub)
+  &.weak
+    color var(--text_color_weak)
+  &.theme
+    color var(--text_color_theme)
+  &.warning
+    color var(--text_color_warning)
+  &.succese
+    color var(--text_color_succese)
+  &.alt
+    color var(--text_color_alt)
