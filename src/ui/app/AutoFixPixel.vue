@@ -2,12 +2,8 @@
 <template>
   <section>
     <h2>快速对齐像素</h2>
-    <button class="button button--primary" @click="fixPixel(1)">
-      对齐到 1px
-    </button>
-    <button class="button button--primary" @click="fixPixel(0.5)">
-      对齐到 0.5px
-    </button>
+    <button @click="fixPixel(1)">对齐到 1px</button>
+    <button @click="fixPixel(0.5)">对齐到 0.5px</button>
   </section>
 </template>
 
