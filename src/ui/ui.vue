@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import styles from "figma-plugin-ds/dist/figma-plugin-ds.css";
 export default {
   name: "main",
 };
