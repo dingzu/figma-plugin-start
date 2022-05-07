@@ -1,10 +1,36 @@
 {
-	"name": "Vue3 Plugin Template",
+	"name": "Figma Plugin Template Vue 3",
 	"api": "1.0.0",
 	"main": "dist/code.js",
 	"ui": "dist/ui.html",
 	"id": "1099490469536632924",
 	"editorType": [
 		"figma"
+	],
+	"menu": [
+		{
+			"name": "打开窗口",
+			"command": "open-window"
+		},
+		{
+			"name": "快捷操作",
+			"menu": [
+				{
+					"name": "1px 对齐",
+					"command": "fix-pixel-1px"
+				},
+				{
+					"name": "0.5px 对齐",
+					"command": "fix-pixel-0-p-5px"
+				},
+				{
+					"separator": true
+				},
+				{
+					"name": "其他功能开发中",
+					"command": "todo"
+				}
+			]
+		}
 	]
 }

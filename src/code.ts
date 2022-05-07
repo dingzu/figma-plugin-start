@@ -1,11 +1,10 @@
-import { dispatch, handleEvent } from './codeMessageHandler';
+import { dispatch, handleEvent } from './utils/codeMessageHandler';
+import appLoader from './utils/appLoader'
+import start from './utils/start'
 figma.showUI(__html__);
 
-// The following shows how messages from the UI code can be handled in the main code.
-handleEvent('createNode', () => {
-	const node = figma.createRectangle();
-	node.name = node.id;
+// 安装 app
+appLoader.load()
 
-	// This shows how the main code can send messages to the UI code.
-	dispatch('nodeCreated', node.id);
-});
+// 启动插件
+start()
