@@ -12,6 +12,17 @@
 
     npm run dev
 
+# 创建你的功能
+
+- UI 文件: 在 `src/ui/app` 下参考 `Example.vue` 建立你的页面
+- 程序文件:在 `utils/app` 下参考 `example.ts` 注册你的功能接口和逻辑代码
+  
+[可选] 如果想要创建一个快速启动入口
+
+- 在根目录下的 `manifest.json` 中的 `menu` 字段下注册一个菜单
+- 在你的程序文件中注册 `quickAction` 运行函数
+- 在 `utils/start.ts` 中引用你的程序文件，并根据你在 `menu` 中注册的 `command` 注册启动信息
+
 # Design Token
 
 可以通过 Design Token 控制全局样式

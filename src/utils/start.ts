@@ -1,4 +1,5 @@
 import autoFixPixel from './app/autoFixPixel'
+import example from './app/example'
 
 const CLOSE_PLUGIN_MSG = "_CLOSE_PLUGIN_"
 
@@ -9,6 +10,10 @@ function menu(com) {
         case 'open-window':
             figma.showUI(__html__, { width: 320, height: 680 });
             break;
+        // 示范功能
+        case 'example':
+            example.quickAction(1)
+            throw CLOSE_PLUGIN_MSG
         // 对齐像素
         case 'fix-pixel-1px':
             autoFixPixel.quickAction(1)
@@ -29,7 +34,6 @@ export default function start() {
         if (e === CLOSE_PLUGIN_MSG) {
             figma.closePlugin()
         } else {
-            // >> DO NOT LEAVE THIS OUT <<
             // If we caught any other kind of exception,
             // it's a real error and should be passed along.
             throw e

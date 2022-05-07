@@ -23,7 +23,7 @@ const module = {
 export default module
 
 const message = {
-  type: 'test',
+  type: 'text',
   content: '自动对齐像素完成'
 }
 
