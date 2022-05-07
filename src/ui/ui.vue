@@ -13,4 +13,5 @@ export default {
 <style lang="stylus">
 @import '../style/reset'
 @import '../style/design_token'
+@import '../style/base_class'
 </style>

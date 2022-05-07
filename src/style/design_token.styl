@@ -1,6 +1,7 @@
 :root
   // 圆角
   --radius 4px
+  --radius_2x 8px
   // 通用色
   --color_theme #0c66fd
   --color_warning #f69b1b
@@ -20,11 +21,23 @@
   --border_color #e6e7e7
   --border_color_form #666
   // 页面间距
-  --top_bar_height 36px
-  --page_padding 12px
+  --padding_n 12px
+  --padding_s 8px
+  --margin_l 12px
+  --margin_n 8px
+  --margin_s 4px
+  // 2x 值
+  --padding_2n 24px
+  --padding_2s 16px
+  --margin_2l 24px
+  --margin_2n 16px
+  --margin_2s 8px
+  // 表单尺寸
+  --form_height_n 28px
+  --form_height_2n 56px
   // 动画
   --ani_base 120ms all ease-out
-  --ani_long 240ms all ease-in-out
+  --ani_slow 240ms all ease-in-out
 
 // 文字属性定义
 p, a, button
@@ -52,3 +65,10 @@ p, a, button
     color var(--text_color_succese)
   &.alt
     color var(--text_color_alt)
+
+h2
+  color var(--text_color_main)
+  font-weight 900
+  font-size 22px
+  line-height 32px
+  zoom .5
