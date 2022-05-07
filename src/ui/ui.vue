@@ -1,6 +1,16 @@
 <template>
-  <div id="ui">
-    <button class="button button--primary">Create a Vue3 node</button>
-    <p class="type type--pos-small-normal">111</p>
+  <div class="figma-plugin">
+    <router-view></router-view>
   </div>
 </template>
+
+<script>
+export default {
+  name: "main",
+};
+</script>
+
+<style lang="stylus">
+@import '../style/design_token'
+@import '../style/reset'
+</style>

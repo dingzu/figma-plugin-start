@@ -28,6 +28,10 @@ module.exports = (env, argv) => ({
 			// Enables including CSS by doing "import './file.css'" in your TypeScript code
 			{ test: /\.css$/, loader: [{ loader: 'style-loader' }, { loader: 'css-loader' }] },
 			{
+				test: /\.styl(us)?$/,
+				loader: 'style-loader!css-loader!stylus-loader'
+			},
+			{
 				test: /\.scss$/,
 				use: [
 					{
@@ -72,26 +76,26 @@ module.exports = (env, argv) => ({
 	plugins:
 		argv.mode === 'production'
 			? [
-					new VueLoaderPlugin(),
-					new RemovePlugin({
-						after: { include: ['dist/ui.js'] }
-					}),
-					new HtmlWebpackPlugin({
-						template: './src/ui/ui.html',
-						filename: 'ui.html',
-						inlineSource: '.(js|css|scss)$',
-						chunks: ['ui']
-					}),
-					new HtmlWebpackInlineSourcePlugin()
-			  ]
+				new VueLoaderPlugin(),
+				new RemovePlugin({
+					after: { include: ['dist/ui.js'] }
+				}),
+				new HtmlWebpackPlugin({
+					template: './src/ui/ui.html',
+					filename: 'ui.html',
+					inlineSource: '.(js|css|scss|stylus|styl)$',
+					chunks: ['ui']
+				}),
+				new HtmlWebpackInlineSourcePlugin()
+			]
 			: [
-					new VueLoaderPlugin(),
-					new HtmlWebpackPlugin({
-						template: './src/ui/ui.html',
-						filename: 'ui.html',
-						inlineSource: '.(js|css|scss)$',
-						chunks: ['ui']
-					}),
-					new HtmlWebpackInlineSourcePlugin()
-			  ]
+				new VueLoaderPlugin(),
+				new HtmlWebpackPlugin({
+					template: './src/ui/ui.html',
+					filename: 'ui.html',
+					inlineSource: '.(js|css|scss|stylus|styl)$',
+					chunks: ['ui']
+				}),
+				new HtmlWebpackInlineSourcePlugin()
+			]
 });
