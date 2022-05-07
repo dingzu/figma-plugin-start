@@ -5,10 +5,6 @@
 
 # How to use
 
-预览:
-
-    npm run preview
-
 构建
 
     npm run build
