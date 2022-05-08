@@ -25,6 +25,14 @@
 - 在你的程序文件中注册 `quickAction` 运行函数
 - 在 `utils/start.ts` 中引用你的程序文件，并根据你在 `menu` 中注册的 `command` 注册启动信息
 
+# 全局变量
+
+全局变量管理在 `src/global-data` 下，在使用时 `this.GLOBAL.xxx`或者  `this.GLOBAL[xxx]`  即可
+
+但是要使用可以被监听的全局变量，需要注册到 `src/ui/ui.vue` ，调用时使用  `this.$root.xxx`
+
+你可以使用全局变量 `this.$root.loading` 唤起加载动画，或者唤起遮罩阻断用户的下一步操作
+
 # Design Token
 
 可以通过 Design Token 控制全局样式

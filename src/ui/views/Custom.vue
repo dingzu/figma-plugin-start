@@ -6,14 +6,14 @@
     </section>
     <divide />
     <!--自动对齐像素-->
-    <Example />
+    <ExampleApp />
   </div>
 </template>
 
 <script>
-import Example from "../app/Example.vue";
+import ExampleApp from "../app/ExampleApp.vue";
 export default {
-  components: { Example },
+  components: { ExampleApp },
   name: "custom",
 };
 </script>
