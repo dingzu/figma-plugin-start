@@ -4,15 +4,15 @@
     <!--轻加载模式-->
     <div
       class="loading-bar"
-      v-if="$root.loading.isLoading && $root.loading.type == 'line'"
+      v-if="GLOBAL.loading.isLoading && GLOBAL.loading.type == 'line'"
     ></div>
     <!--阻断操作模式-->
     <div
       class="loading-mask"
-      v-else-if="$root.loading.isLoading && $root.loading.type == 'mask'"
+      v-else-if="GLOBAL.loading.isLoading && GLOBAL.loading.type == 'mask'"
     >
       <div class="card">
-        <h2>{{ $root.loading.text }}</h2>
+        <h2>{{ GLOBAL.loading.text }}</h2>
       </div>
     </div>
     <!--无加载-->

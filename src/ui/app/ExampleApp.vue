@@ -15,7 +15,7 @@
       <h2>组件展示</h2>
       <div class="flex">
         <button @click="GLOBAL.loading.isLoading = true">激活加载</button>
-        <button @click="$root.loading.isLoading = false">停止加载</button>
+        <button @click="GLOBAL.loading.isLoading = false">停止加载</button>
         <button @click="openMask()">激活mask</button>
       </div>
     </section>
@@ -37,18 +37,18 @@ export default {
       dispatch("autoFixPixel", key);
     },
     openMask() {
-      this.$root.loading.isLoading = true;
-      this.$root.loading.type = "mask";
-      this.$root.loading.text = "将在 3s 后关闭";
+      this.GLOBAL.loading.isLoading = true;
+      this.GLOBAL.loading.type = "mask";
+      this.GLOBAL.loading.text = "将在 3s 后关闭";
       setTimeout(() => {
-        this.$root.loading.text = "将在 2s 后关闭";
+        this.GLOBAL.loading.text = "将在 2s 后关闭";
       }, 1000);
       setTimeout(() => {
-        this.$root.loading.text = "将在 1s 后关闭";
+        this.GLOBAL.loading.text = "将在 1s 后关闭";
       }, 2000);
       setTimeout(() => {
-        this.$root.loading.isLoading = false;
-        this.$root.loading.type = "line";
+        this.GLOBAL.loading.isLoading = false;
+        this.GLOBAL.loading.type = "line";
       }, 3000);
     },
   },

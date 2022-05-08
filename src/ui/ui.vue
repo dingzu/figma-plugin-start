@@ -10,15 +10,6 @@ import Loading from "./views/Loading.vue";
 export default {
   name: "root",
   components: { Loading },
-  data() {
-    return {
-      loading: {
-        isLoading: false, // false,true
-        type: "line", // line,mask
-        text: "", // string
-      },
-    };
-  },
 };
 </script>
 
