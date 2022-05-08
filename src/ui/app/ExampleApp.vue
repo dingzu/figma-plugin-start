@@ -14,7 +14,7 @@
     <section>
       <h2>组件展示</h2>
       <div class="flex">
-        <button @click="$root.loading.isLoading = true">激活加载</button>
+        <button @click="GLOBAL.loading.isLoading = true">激活加载</button>
         <button @click="$root.loading.isLoading = false">停止加载</button>
         <button @click="openMask()">激活mask</button>
       </div>
