@@ -26,7 +26,17 @@ export default {
   name: "loading",
   mounted() {
     // 可以接收从 js 文件中发送的信息
-    handleEvent("pushLoadingMsg", (message) => {});
+    handleEvent("pushLoadingMsg", (message) => {
+      if ("isLoading" in message) {
+        GLOBAL.loading.isLoading = message.isLoading;
+      }
+      if ("type" in message) {
+        GLOBAL.loading.type = message.type;
+      }
+      if ("text" in message) {
+        GLOBAL.loading.text = message.text;
+      }
+    });
   },
 };
 </script>

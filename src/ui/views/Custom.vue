@@ -5,7 +5,7 @@
       <p>这是一个示范项目</p>
     </section>
     <divide />
-    <!--自动对齐像素-->
+    <!--示范项目-->
     <ExampleApp />
   </div>
 </template>

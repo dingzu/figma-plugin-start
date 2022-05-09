@@ -12,6 +12,8 @@ div.divide
     flex-direction row
     align-items flex-start
     gap var(--margin_n)
+    >*
+        flex-grow 1
 
 button
     display block
@@ -25,3 +27,64 @@ button
     &:hover
         border-color var(--border_color_form_active)
         cursor pointer
+
+input, .input
+    display block
+    box-sizing border-box
+    padding 0 var(--padding_2s)
+    width 100%
+    height var(--form_height_2n)
+    border 2px solid var(--border_color_form)
+    border-radius var(--radius_2x)
+    background-color var(--bg_color_main)
+    transition var(--ani_base)
+    zoom .5
+    >p
+        margin -2px 0
+        line-height var(--form_height_2n)
+        zoom 1
+    &:focus
+        outline 2px solid var(--color_theme)
+        border 2px solid var(--color_theme)
+
+input.switch
+    position relative
+    width 0px
+    height var(--form_height_n)
+    outline none
+    border none
+    zoom 1
+    &:hover
+        cursor pointer
+    &:before
+        position absolute
+        top 50%
+        left 0px
+        z-index 1
+        display block
+        width 26px
+        height 12px
+        border 1px solid var(--border_color_form)
+        border-radius 100px
+        background-color #fff
+        content ''
+        transform translateY(-50%)
+    &:after
+        position absolute
+        top 50%
+        left 3px
+        z-index 2
+        display block
+        width 8px
+        height 8px
+        border-radius 100px
+        background-color var(--color_active)
+        content ''
+        transition 80ms all ease-in-out
+        transform translateY(-50%)
+    &:checked:after
+        left 17px
+        background-color var(--text_color_alt)
+    &:checked:before
+        border 1px solid transparent
+        background-color var(--color_active)

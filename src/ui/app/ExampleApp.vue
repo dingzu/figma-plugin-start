@@ -12,7 +12,7 @@
     <divide />
     <!-- 表单组件展示模块 -->
     <section>
-      <h2>组件展示</h2>
+      <h2>遮罩展示</h2>
       <div class="flex">
         <button @click="GLOBAL.loading.isLoading = true">激活加载</button>
         <button @click="GLOBAL.loading.isLoading = false">停止加载</button>
@@ -20,6 +20,29 @@
       </div>
     </section>
     <divide />
+    <section>
+      <h2>选择器</h2>
+      <f-selector
+        :current="selectorData.current"
+        :list="selectorData.list"
+        @change-value="changeValue"
+      />
+    </section>
+    <divide />
+    <section>
+      <h2>输入框</h2>
+      <input type="text" v-model="inputData" placeholder="请输入" />
+    </section>
+    <divide />
+    <section>
+      <h2>Switch</h2>
+      <input
+        type="checkbox"
+        class="switch"
+        v-model="switchData"
+        @click="switchData = !switchData"
+      />
+    </section>
   </div>
 </template>
 
@@ -27,12 +50,39 @@
 import { dispatch, handleEvent } from "../uiMessageHandler";
 export default {
   name: "example",
+  data() {
+    return {
+      inputData: null,
+      selectorData: {
+        switchData: false,
+        current: -1,
+        list: [
+          {
+            value: 0,
+            text: "第一项",
+          },
+          {
+            value: 1,
+            text: "第二项",
+          },
+          {
+            value: 2,
+            text: "第三项",
+          },
+        ],
+      },
+    };
+  },
   mounted() {
     handleEvent("autoFixPixelDone", (message) => {
       console.log(message.content);
     });
   },
   methods: {
+    changeValue(value) {
+      console.log("触发修改", value);
+      this.selectorData.current = value;
+    },
     fixPixel(key) {
       dispatch("autoFixPixel", key);
     },
@@ -57,6 +107,7 @@ export default {
 
 <style lang="stylus">
 .app_example
+  height 100%
   h2
     margin-bottom var(--margin_2n)
 </style>
