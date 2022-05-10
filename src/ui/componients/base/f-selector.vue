@@ -1,21 +1,30 @@
 <template>
-  <div class="f-selector">
+  <div class="f-selector" :class="isSelect ? 'selected' : ''">
     <!--用一个看不见的 select 组件来获取一些状态-->
-    <input @focus="selectEvent(true, 0)" @blur="selectEvent(false, 120)" />
+    <input
+      @focus="selectEvent(true, 0)"
+      @blur="selectEvent(false, 120)"
+      v-model="search"
+    />
     <!--模拟显示-->
     <div :class="[isSelect ? 'active' : '', 'input']">
       <p>{{ recentText }}</p>
     </div>
     <transition name="fade_down_top">
       <div class="options" v-show="isSelect">
-        <div
-          v-for="item in list"
-          :key="item.value"
-          :class="[item.value == current ? 'active' : '', 'option']"
-          @click="chose(item)"
-        >
-          <img src="../../assets/check-line.svg" alt="" />
-          <p>{{ item.text }}</p>
+        <div class="option search" :class="search ? '' : 'place_holder'">
+          <img src="../../assets/search.svg" alt="" />
+          <p>{{ search || "搜索关键词" }}</p>
+        </div>
+        <div v-for="item in list" :key="item.value">
+          <div
+            v-if="!search || item.text.indexOf(search) != -1"
+            :class="[item.value == current ? 'active' : '', 'option']"
+            @click="chose(item)"
+          >
+            <img src="../../assets/check-line.svg" alt="" />
+            <p>{{ item.text }}</p>
+          </div>
         </div>
       </div>
     </transition>
@@ -39,6 +48,7 @@ export default {
   data() {
     return {
       isSelect: false,
+      search: undefined,
     };
   },
   computed: {
@@ -57,6 +67,7 @@ export default {
     selectEvent(state, delay) {
       setTimeout(() => {
         this.isSelect = state;
+        this.search = undefined;
       }, delay);
     },
     // 选择项目，数据传递到父组件处理，通过修改 current props 值实现变化
@@ -70,10 +81,13 @@ export default {
 .f-selector
   position relative
   height var(--form_height_n)
+  &.selected
+    input:hover
+      cursor text
   input
     position absolute
     top 0
-    z-index 0
+    z-index 10
     display block
     width 100%
     height 100%
@@ -118,4 +132,14 @@ export default {
       &.active
         img
           opacity 1
+      &.search
+        &:hover
+          background-color transparent
+          cursor text
+        img
+          margin 0 -4px 0 0px
+          opacity 1
+        &.place_holder
+          p
+            opacity .4
 </style>
