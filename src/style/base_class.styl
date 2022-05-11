@@ -66,7 +66,7 @@ input.switch
         height 12px
         border 1px solid var(--border_color_form)
         border-radius 100px
-        background-color #fff
+        background-color var(--bg_color_main)
         content ''
         transform translateY(-50%)
     &:after
@@ -78,13 +78,13 @@ input.switch
         width 8px
         height 8px
         border-radius 100px
-        background-color var(--color_active)
+        background-color var(--text_color_sub)
         content ''
         transition 80ms all ease-in-out
         transform translateY(-50%)
     &:checked:after
         left 17px
-        background-color var(--text_color_alt)
+        background-color var(--text_color_white)
     &:checked:before
-        border 1px solid transparent
+        border 1px solid var(--color_active)
         background-color var(--color_active)

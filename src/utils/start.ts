@@ -8,7 +8,7 @@ function menu(com) {
     switch (com) {
         // 启动插件 UI
         case 'open-window':
-            figma.showUI(__html__, { width: 320, height: 680 });
+            figma.showUI(__html__, { width: 320, height: 680, themeColors: true });
             break;
         // 示范功能
         case 'example':
@@ -23,7 +23,7 @@ function menu(com) {
             throw CLOSE_PLUGIN_MSG
         // 兜底：启动插件 UI
         default:
-            figma.showUI(__html__, { width: 320, height: 680 });
+            figma.showUI(__html__, { width: 320, height: 680, themeColors: true });
     }
 }
 

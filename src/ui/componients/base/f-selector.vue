@@ -145,10 +145,10 @@ export default {
         left 5000px
         margin 0 -4px 0 -2px
         width 14px
-        filter drop-shadow(var(--text_color_alt) -5000px 0)
+        filter drop-shadow(var(--text_color_white) -5000px 0)
         opacity 0
       p
-        color var(--text_color_alt)
+        color var(--text_color_white)
         line-height var(--form_height_2n)
       &:hover
         background-color var(--color_theme)
