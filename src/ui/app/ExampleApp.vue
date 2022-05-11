@@ -30,6 +30,16 @@
     </section>
     <divide />
     <section>
+      <h2>选择器：有搜索</h2>
+      <f-selector
+        :current="selectorData.current"
+        :list="selectorData.list"
+        :search="true"
+        @change-value="changeValue"
+      />
+    </section>
+    <divide />
+    <section>
       <h2>输入框</h2>
       <input type="text" v-model="inputData" placeholder="请输入" />
     </section>

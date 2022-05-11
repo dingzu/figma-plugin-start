@@ -1,10 +1,13 @@
 <template>
-  <div class="f-selector" :class="isSelect ? 'selected' : ''">
+  <div
+    class="f-selector"
+    :class="[isSelect ? 'selected' : '', search ? 'search' : '']"
+  >
     <!--用一个看不见的 select 组件来获取一些状态-->
     <input
-      @focus="selectEvent(true, 0)"
-      @blur="selectEvent(false, 120)"
-      v-model="search"
+      @focus="selectEvent(true, 80)"
+      @blur="selectEvent(false, 80)"
+      v-model="searchData"
     />
     <!--模拟显示-->
     <div :class="[isSelect ? 'active' : '', 'input']">
@@ -12,18 +15,28 @@
     </div>
     <transition name="fade_down_top">
       <div class="options" v-show="isSelect">
-        <div class="option search" :class="search ? '' : 'place_holder'">
+        <div
+          class="option search"
+          v-if="search"
+          :class="[
+            searchData ? '' : 'place_holder',
+            activeInput ? 'active' : '',
+          ]"
+          @click="activeInput = true"
+        >
           <img src="../../assets/search.svg" alt="" />
-          <p>{{ search || "搜索关键词" }}</p>
+          <p>{{ searchData || "搜索关键词" }}</p>
         </div>
-        <div v-for="item in list" :key="item.value">
-          <div
-            v-if="!search || item.text.indexOf(search) != -1"
-            :class="[item.value == current ? 'active' : '', 'option']"
-            @click="chose(item)"
-          >
-            <img src="../../assets/check-line.svg" alt="" />
-            <p>{{ item.text }}</p>
+        <div class="option_group">
+          <div v-for="item in list" :key="item.value">
+            <div
+              v-if="!searchData || item.text.indexOf(searchData) != -1"
+              :class="[item.value == current ? 'active' : '', 'option']"
+              @click="chose(item)"
+            >
+              <img src="../../assets/check-line.svg" alt="" />
+              <p>{{ item.text }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -44,11 +57,17 @@ export default {
       type: Array,
       required: true,
     },
+    // 是否支持搜索
+    search: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       isSelect: false,
-      search: undefined,
+      searchData: undefined,
+      activeInput: true,
     };
   },
   computed: {
@@ -84,10 +103,13 @@ export default {
   &.selected
     input:hover
       cursor text
-  input
+  &.search
+    >input
+      z-index 10
+  >input
     position absolute
     top 0
-    z-index 10
+    z-index 1
     display block
     width 100%
     height 100%
@@ -104,11 +126,13 @@ export default {
     top 0
     z-index 2
     overflow-y scroll
-    padding var(--padding_s) 0
+    padding var(--padding_ss) 0
     max-height 360px
     width 100%
     border-radius var(--radius)
     background-color var(--bg_color_alt)
+    .option_group
+      padding var(--padding_ss) 0
     .option
       display flex
       flex-direction row
@@ -119,7 +143,7 @@ export default {
       img
         position relative
         left 5000px
-        margin 0 -4px
+        margin 0 -4px 0 -2px
         width 14px
         filter drop-shadow(var(--text_color_alt) -5000px 0)
         opacity 0
@@ -137,7 +161,6 @@ export default {
           background-color transparent
           cursor text
         img
-          margin 0 -4px 0 0px
           opacity 1
         &.place_holder
           p
