@@ -10,6 +10,23 @@
       </div>
     </section>
     <divide />
+    <!-- 图标展示 -->
+    <section>
+      <h2>图标</h2>
+      <div class="flex">
+        <icon use="arrow-down-s-line" style="width: 16px; height: 16px" />
+        <icon use="check-line" style="width: 16px; height: 16px" />
+        <icon use="search" style="width: 16px; height: 16px" />
+        <icon use="cloud-line" style="width: 16px; height: 16px" />
+        <icon use="code-s-slash-line" style="width: 16px; height: 16px" />
+        <icon use="edit-line" style="width: 16px; height: 16px" />
+        <icon use="heart-line" style="width: 16px; height: 16px" />
+        <icon use="home-5-line" style="width: 16px; height: 16px" />
+        <icon use="image-line" style="width: 16px; height: 16px" />
+        <icon use="palette-line" style="width: 16px; height: 16px" />
+      </div>
+    </section>
+    <divide />
     <!-- 表单组件展示模块 -->
     <section>
       <h2>遮罩展示</h2>
