@@ -154,6 +154,7 @@ export default {
         margin 0 -4px 0 -2px
         width 14px
         opacity 0
+        fill var(--text_color_white)
       p
         color var(--text_color_white)
         line-height var(--form_height_2n)
