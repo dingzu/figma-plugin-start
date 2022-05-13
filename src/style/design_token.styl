@@ -6,7 +6,7 @@
   --color_active #0c66fd
   --color_danger #df1243
   // 背景色
-  --bg_color_main #131313
+  --bg_color_main #2c2c2c
   --bg_color_sub #f4f4f7
   --bg_color_alt #212121
   --bg_color_active #eaf2ff
@@ -74,6 +74,8 @@ p, a, button, input, .input
   font-size 22px
   line-height 32px
   zoom .5
+  &.medium
+    font-weight 600
   &.bold
     font-weight 900
   &.small
@@ -94,6 +96,8 @@ p, a, button, input, .input
     color var(--text_color_succese)
   &.alt
     color var(--text_color_alt)
+  &.white
+    color var(--text_color_white)
 
 h2
   margin -4px 0

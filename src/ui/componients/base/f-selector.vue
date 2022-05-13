@@ -12,6 +12,7 @@
     <!--模拟显示-->
     <div :class="[isSelect ? 'active' : '', 'input']">
       <p>{{ recentText }}</p>
+      <icon use="arrow-down-s-line" class="arrow" />
     </div>
     <transition name="fade_down_top">
       <div class="options" v-show="isSelect">
@@ -24,7 +25,7 @@
           ]"
           @click="activeInput = true"
         >
-          <img src="../../assets/search.svg" alt="" />
+          <icon :use="'search'" />
           <p>{{ searchData || "搜索关键词" }}</p>
         </div>
         <div class="option_group">
@@ -34,8 +35,8 @@
               :class="[item.value == current ? 'active' : '', 'option']"
               @click="chose(item)"
             >
-              <img src="../../assets/check-line.svg" alt="" />
-              <p>{{ item.text }}</p>
+              <icon use="check-line" />
+              <p class="medium white">{{ item.text }}</p>
             </div>
           </div>
         </div>
@@ -116,6 +117,15 @@ export default {
     outline none
     border none
     opacity 0
+  .input
+    .arrow
+      position absolute
+      top 50%
+      right var(--padding_n)
+      width 32px
+      height 32px
+      transform translateY(-50%)
+      fill var(--text_color_weak)
     &:focus
       outline none
       border none
@@ -140,12 +150,9 @@ export default {
       width 100%
       height var(--form_height_n)
       gap var(--margin_l)
-      img
-        position relative
-        left 5000px
+      svg
         margin 0 -4px 0 -2px
         width 14px
-        filter drop-shadow(var(--text_color_white) -5000px 0)
         opacity 0
       p
         color var(--text_color_white)
@@ -154,13 +161,13 @@ export default {
         background-color var(--color_theme)
         cursor pointer
       &.active
-        img
+        svg
           opacity 1
       &.search
         &:hover
           background-color transparent
           cursor text
-        img
+        svg
           opacity 1
         &.place_holder
           p

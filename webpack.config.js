@@ -1,6 +1,7 @@
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const { VueLoaderPlugin } = require('vue-loader');
 const path = require('path');
 
@@ -59,8 +60,20 @@ module.exports = (env, argv) => ({
 				loader: 'vue-loader'
 			},
 
+			// svg 加载
+			{
+				test: /\.svg$/,
+				exclude: path.resolve(__dirname, 'src/ui/assets/icons')
+			},
+			{
+				test: /\.svg$/,
+				loader: 'svg-sprite-loader',
+				include: path.resolve(__dirname, 'src/ui/assets/icons'),
+				options: { extract: false }
+			},
+
 			// Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
-			{ test: /\.(png|jpg|gif|webp|svg)$/, loader: [{ loader: 'url-loader' }] }
+			{ test: /\.(png|jpg|gif|webp)$/, loader: [{ loader: 'url-loader' }] }
 		]
 	},
 
@@ -86,7 +99,8 @@ module.exports = (env, argv) => ({
 					inlineSource: '.(js|css|scss|stylus|styl)$',
 					chunks: ['ui']
 				}),
-				new HtmlWebpackInlineSourcePlugin()
+				new HtmlWebpackInlineSourcePlugin(),
+				new SpriteLoaderPlugin({ plainSprite: true })
 			]
 			: [
 				new VueLoaderPlugin(),
@@ -96,6 +110,7 @@ module.exports = (env, argv) => ({
 					inlineSource: '.(js|css|scss|stylus|styl)$',
 					chunks: ['ui']
 				}),
-				new HtmlWebpackInlineSourcePlugin()
+				new HtmlWebpackInlineSourcePlugin(),
+				new SpriteLoaderPlugin({ plainSprite: true })
 			]
 });

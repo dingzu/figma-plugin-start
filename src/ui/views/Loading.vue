@@ -49,11 +49,11 @@ export default {
   left 0
   z-index 1000
   overflow hidden
-  height 3px
+  height 1px
   background-color var(--bg_color_main)
   &:after
     position absolute
-    top 1px
+    top 0px
     display block
     width 100px
     height 2px

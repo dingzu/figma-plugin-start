@@ -65,7 +65,7 @@
     <h2>这是标题文字</h2>
 
 
-文字默认 11px 使用一级颜色，9px 使用三级颜色，可以使用类名切换颜色级
+文字默认 11px 使用一级颜色，9px 使用三级颜色，可以使用类名切换颜色级，白色文字和反白文字在 dark 模式下的展现形式是有差异的，前者在 dark 模式下会变成黑色，而后者不会
 
     <p class="main">这是一级颜色</p>
     <p class="sub">这是二级颜色</p>
@@ -74,3 +74,11 @@
     <p class="warning">这是警告颜色</p>
     <p class="succese">这是成功颜色</p>
     <p class="alt">这是反白颜色</p>
+    <p class="white">这是白颜色</p>
+
+## 图标
+
+图标的使用非常简单，引入后是一个 svg ，默认为一级文字颜色，你可以通过 `fill` 属性自定义颜色。新增的图标请放在 `ui/assets/icons` 下
+
+    <icon :use="name"/>
+    <icon use="arrow-down-s-line" />
