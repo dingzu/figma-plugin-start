@@ -107,7 +107,6 @@ export default {
   },
   methods: {
     changeValue(value) {
-      console.log("触发修改", value);
       this.selectorData.current = value;
     },
     fixPixel(key) {

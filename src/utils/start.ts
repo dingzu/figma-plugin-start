@@ -1,5 +1,6 @@
 import autoFixPixel from './app/autoFixPixel'
 import example from './app/example'
+import { dispatch, handleEvent } from './codeMessageHandler'
 
 const CLOSE_PLUGIN_MSG = "_CLOSE_PLUGIN_"
 
@@ -9,6 +10,7 @@ function menu(com) {
         // 启动插件 UI
         case 'open-window':
             figma.showUI(__html__, { width: 320, height: 680, themeColors: true });
+            dispatch('goto', { path: '/custom' })
             break;
         // 示范功能
         case 'example':
@@ -24,6 +26,7 @@ function menu(com) {
         // 兜底：启动插件 UI
         default:
             figma.showUI(__html__, { width: 320, height: 680, themeColors: true });
+            dispatch('goto', { path: '/custom' })
     }
 }
 

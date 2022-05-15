@@ -7,9 +7,15 @@
 
 <script>
 import Loading from "./views/Loading.vue";
+import { dispatch, handleEvent } from "./uiMessageHandler";
 export default {
   name: "root",
   components: { Loading },
+  mounted() {
+    handleEvent("goto", (message) => {
+      this.$router.push(message);
+    });
+  },
 };
 </script>
 

@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 import custom from '../views/Custom.vue'
 
 const routes = [
-  { path: "/", name: "mian", redirect: "/custom" } as RouteRecordRaw,
+  { path: "/", name: "mian" } as RouteRecordRaw,
   {
     path: "/custom",
     name: "custom",
